@@ -1,7 +1,14 @@
 <template>
     <div class="deployment">
+        <v-hover
+          v-slot="{ isHovering, props }"
+          open-delay="200"
+        >
             <v-card
-                to="/"
+                @click="$emit('selected', 'v-card')"
+                :elevation="isHovering ? 16 : 2"
+                :class="{ 'on-hover': isHovering }"
+                v-bind="props"
             >
                 <v-img
                     :src="getImageUrl()"
@@ -9,16 +16,12 @@
                 ></v-img>
                 <v-card-title>{{ displayName }}</v-card-title>
             </v-card>
+        </v-hover>
     </div>
 </template>
 <script>
 export default {
   name: 'DeploymentPage',
-//   data: ({
-//       cards: [
-//         { title: 'Pre-fab homes', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
-//       ],
-//     }),
   props: {
     displayName: String,
     mapImage: String,
