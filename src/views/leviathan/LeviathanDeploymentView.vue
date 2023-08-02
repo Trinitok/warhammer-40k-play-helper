@@ -13,6 +13,8 @@
       v-model="model"
       class="pa-4"
       selected-class="bg-primary"
+      prev-icon="$vuetify"
+      next-icon="$vuetify"
       show-arrows
     >
       <v-slide-group-item
@@ -104,7 +106,9 @@
         height="200"
       >
         <div class="d-flex fill-height align-center justify-center">
-          <LeviathanTableSetup />
+          <LeviathanTableSetup 
+            :setup="selectedDeployment"
+          />
           
           <!-- <h3 class="text-h6">
             Selected {{ model }}

@@ -6,7 +6,7 @@
       block 
       variant="tonal"
       color="#5865f2"
-      to="/mission"
+      to="/play"
     >
         Play
     </v-btn>

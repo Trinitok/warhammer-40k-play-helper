@@ -1,8 +1,9 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import MainView from '../views/MainView.vue'
 import AboutView from '../views/AboutView.vue'
-import MissionSelectView from '@/views/MissionSelectView.vue'
+import GameSelectView from '@/views/GameSelectView.vue'
 import LeviathanDeploymentView from '@/views/leviathan/LeviathanDeploymentView.vue'
+import MissionView from '@/views/MissionView.vue'
 
 const routes = [
   {
@@ -20,14 +21,19 @@ const routes = [
     // component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
   {
-    path: '/mission',
-    name: 'mission',
-    component: MissionSelectView
+    path: '/play',
+    name: 'play',
+    component: GameSelectView
   },
   {
     path: '/leviathan-deployment',
     name: 'leviathan-deployment',
     component: LeviathanDeploymentView
+  },
+  {
+    path: '/leviathan-primary-mission-select',
+    name: 'leviathan-primary-mission-select',
+    component: MissionView
   },
 ]
 

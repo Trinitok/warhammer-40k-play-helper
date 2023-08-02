@@ -1,5 +1,5 @@
 <template>
-    <div class="mission-select">
+    <div class="game-select">
         <v-container class="text-center">
             <v-row justify="center">
                 <v-col cols="12" sm="6" md="4">
