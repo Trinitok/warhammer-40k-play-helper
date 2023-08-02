@@ -10,25 +10,27 @@
             show-arrows
         >
             <v-tab
-                v-for="item in items"
-                :key="item"
-                :value="item"
+                v-for="defaultMissionPhases in defaultMissionPhases"
+                :key="defaultMissionPhases"
+                :value="defaultMissionPhases"
             >
-                {{ item }}
+                {{ defaultMissionPhases }}
             </v-tab>
         </v-tabs>
 
         <v-window v-model="tab">
             <v-window-item
-                v-for="(item, index) in items"
-                :key="item"
-                :value="item"
+                v-for="(defaultMissionPhases, index) in defaultMissionPhases"
+                :key="defaultMissionPhases"
+                :value="defaultMissionPhases"
             >
                 <v-card
-                color="basil"
-                flat
+                    color="basil"
+                    flat
                 >
-                    <v-card-text>{{ text[index] }}</v-card-text>
+                    <v-card-text
+                        @click="testClick"
+                    >{{ phaseText[index] }}</v-card-text>
                 </v-card>
             </v-window-item>
         </v-window>
@@ -39,15 +41,17 @@
   export default {
     name: 'MissionType',
     props: {
-        missionName: String
+        missionName: String,
+        missionPhaseList: Array,
+        missionPhaseText: Array,
     },
     data () {
       return {
-        tab: 'Table Dimensions',
-        items: [
+        tab: 'Mission Phase Tabs',
+        defaultMissionPhases: [
           'Special', 'Battle Round 2', 'Battle Round 3', 'Battle Round 4', 'Battle Round 5', 'End of Battle',
         ],
-        text: [
+        phaseText: [
             'Special text',
             'Battle Round 2 text',
             'Battle Round 3 text',
@@ -56,6 +60,11 @@
             'End of Battle text',
         ],
       }
+    },
+    methods: {
+        testClick() {
+            console.log('A mission text has been clicked')
+        },
     },
   }
 </script>

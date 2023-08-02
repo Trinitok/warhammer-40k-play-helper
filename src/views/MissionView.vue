@@ -56,6 +56,7 @@
             >
                 <div class="d-flex fill-height align-center justify-center">
                     <MissionType
+                        missionName="{{ primaryMissionNames[model] }}"
                     />
                 </div>
             </v-sheet>
