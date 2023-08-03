@@ -26,7 +26,7 @@
                             <v-btn
                                 color="orange-lighten-2"
                                 variant="text"
-                                to="/leviathan-deployment"
+                                to="/leviathan-setup"
                             >
                                 Select
                             </v-btn>

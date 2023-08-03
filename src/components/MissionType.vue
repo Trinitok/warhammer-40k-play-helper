@@ -10,11 +10,11 @@
             show-arrows
         >
             <v-tab
-                v-for="defaultMissionPhases in defaultMissionPhases"
-                :key="defaultMissionPhases"
-                :value="defaultMissionPhases"
+                v-for="missionPhaseList in missionPhaseList"
+                :key="missionPhaseList"
+                :value="missionPhaseList"
             >
-                {{ defaultMissionPhases }}
+                {{ missionPhaseList }}
             </v-tab>
         </v-tabs>
 
@@ -27,6 +27,7 @@
                 <v-card
                     color="basil"
                     flat
+                    width="100%"
                 >
                     <v-card-text
                         @click="testClick"

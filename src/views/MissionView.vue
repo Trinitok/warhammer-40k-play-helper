@@ -3,7 +3,7 @@
         {{ title }}
     </h1>
     <br />
-    <v-btn href="https://wheelofnames.com/hc7-j9a">
+    <v-btn :href="randomButtonSpinnerLink">
         Random Deployment
     </v-btn>
     <br />
@@ -13,6 +13,7 @@
         elevation="8"
         max-width="800"
     >
+        <!-- <v-virtual-scroll> -->
         <v-slide-group
             v-model="model"
             class="pa-4"
@@ -41,6 +42,7 @@
                                 color="white"
                                 size="48"
                                 icon="$vuetify"
+                                width="100%"
                             >
                             </v-icon>
                         </v-scale-transition>
@@ -48,6 +50,7 @@
                 </v-card>
             </v-slide-group-item>
         </v-slide-group>
+        <!-- </v-virtual-scroll> -->
 
         <v-expand-transition>
             <v-sheet
@@ -56,7 +59,8 @@
             >
                 <div class="d-flex fill-height align-center justify-center">
                     <MissionType
-                        missionName="{{ primaryMissionNames[model] }}"
+                        :missionName="primaryMissionNames[model]"
+                        :missionPhaseList="leviathanMissionPhases"
                     />
                 </div>
             </v-sheet>
@@ -71,6 +75,7 @@ export default {
     props: {
         title: String,
         missionList: Array,
+        randomButtonSpinnerLink: String,
     },
     components: {
         MissionType
@@ -87,6 +92,9 @@ export default {
             'Supply Drop',
             'Deploy Servo Skulls',
             'Vital Ground',
+        ],
+        leviathanMissionPhases: [
+          'Meow Special', 'Battle Round 2', 'Battle Round 3', 'Battle Round 4', 'Battle Round 5', 'End of Battle',
         ],
         model: null,
       }

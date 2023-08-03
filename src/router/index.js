@@ -4,6 +4,7 @@ import AboutView from '../views/AboutView.vue'
 import GameSelectView from '@/views/GameSelectView.vue'
 import LeviathanDeploymentView from '@/views/leviathan/LeviathanDeploymentView.vue'
 import MissionView from '@/views/MissionView.vue'
+import LeviathanCarousel from '@/views/LeviathanCarouselView.vue'
 
 const routes = [
   {
@@ -34,6 +35,11 @@ const routes = [
     path: '/leviathan-primary-mission-select',
     name: 'leviathan-primary-mission-select',
     component: MissionView
+  },
+  {
+    path: '/leviathan-setup',
+    name: 'leviathan-carousel',
+    component: LeviathanCarousel
   },
 ]
 
