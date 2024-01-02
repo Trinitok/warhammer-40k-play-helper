@@ -9,15 +9,15 @@
     "deploy": "./deploy.sh"
   },
   "dependencies": {
-    "core-js": "^3.32.0",
-    "vue": "^3.2.13",
-    "vue-router": "^4.0.3",
-    "vuetify": "^3.3.10",
+    "core-js": "^3.35.0",
+    "vue": "^3.4.3",
+    "vue-router": "^4.2.5",
+    "vuetify": "^3.4.9",
     "vuex": "^4.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.9",
-    "@babel/eslint-parser": "^7.22.9",
+    "@babel/core": "^7.23.7",
+    "@babel/eslint-parser": "^7.23.3",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-plugin-router": "~5.0.0",

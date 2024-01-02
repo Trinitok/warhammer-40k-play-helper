@@ -5,6 +5,7 @@ import GameSelectView from '@/views/GameSelectView.vue'
 import LeviathanDeploymentView from '@/views/leviathan/LeviathanDeploymentView.vue'
 import MissionView from '@/views/MissionView.vue'
 import LeviathanCarousel from '@/views/LeviathanCarouselView.vue'
+import FactionSelectorView from '@/views/FactionSelectorView.vue'
 
 const routes = [
   {
@@ -40,6 +41,11 @@ const routes = [
     path: '/leviathan-setup',
     name: 'leviathan-carousel',
     component: LeviathanCarousel
+  },
+  {
+    path: '/faction-select',
+    name: 'faction-select',
+    component: FactionSelectorView
   },
 ]
 

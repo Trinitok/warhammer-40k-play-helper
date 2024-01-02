@@ -20,11 +20,22 @@ We will do our best to update, but make no guarantees on speed for updating.  We
 ## Bugs
 If you notice a bug or notice that there is something incorrect with the rules please create an issue or let one of the maintainers for the site know
 
-## Project setup
+# Development
+## Install Dependencies
+### Install/Update NPM (Homebrew)
+```
+brew install npm
+```
+### Install NPM dependencies
 ```
 npm install
 ```
-
+## Vue Web UI
+```
+vue ui
+```
+You will have to navigate to this in your browser and use whatever changes on this. I am not updating this here
+## CLI
 ### Compiles and hot-reloads for development
 ```
 npm run serve

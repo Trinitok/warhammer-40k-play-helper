@@ -3,7 +3,7 @@
         {{ title }}
     </h1>
     <br />
-    <v-btn :href="randomButtonSpinnerLink">
+    <v-btn :href="randomButtonSpinnerLink" target="_blank">
         Random Deployment
     </v-btn>
     <br />
