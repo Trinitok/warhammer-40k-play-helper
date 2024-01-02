@@ -49,13 +49,17 @@ export default {
           name: 'necrons',
         },
         {
-          src: 'backgrounds/bg-2.jpg',
+          src: '../assets/chaos-space-marines.jpg',
           name: 'chaos marines',
         },
         {
           src: '../assets/tau.jpg',
           name: 'tau',
         },
+        {
+          src: '../assets/chaos-demons.jpg',
+          name: 'chaos demons'
+        }
       ],
       selection: [],
     }),
