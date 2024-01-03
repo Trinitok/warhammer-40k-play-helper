@@ -1,29 +1,40 @@
 <template>
   <div>
     <div class="d-flex justify-space-around align-center py-4">
-      <!-- <v-btn
-        variant="text"
-        icon="$vuetify"
-        @click="model = Math.max(model - 1, 0)"
-      ></v-btn>
-      {{ colors[model] }}
-      <v-btn
-        variant="text"
-        icon="$vuetify"
-        @click="model = Math.min(model + 1, 11)"
-      ></v-btn> -->
     </div>
     <v-stepper 
-      :items="['Step 1', 'Step 2', 'Step 3']"
+      editable
+      :items="[
+        'Step 1', // Establish Players
+        'Step 2', // Deployment Map Select
+        'Step 3', // Primary Mission Select
+        'Step 4', // Mission Rule Select
+        'Step 5', // Measure Table
+        'Step 6', // Place Objective Markers
+        'Step 7', // Place Setup Terrain
+        'Step 8', // Declare Battle Formations
+        'Step 9', // Deploy Armies
+        'Step 10', // Determine First Turn
+        'Step 11', // Resolve Pre Battle Rules
+      ]"
     >
-       <template v-slot:[`item.1`]>
-        <v-card title="Step One" flat>...</v-card>
+      <!-- Player Select -->
+      <template v-slot:[`item.1`]>
+        <v-card title="Establish Players" flat>
+          <v-sheet color="primary" height="100%" tile>
+          <div class="d-flex fill-height justify-center align-center">
+            <div class="text-h2">
+              Establish who is Player 1 and Player 2
+              <!-- Slide {{ i + 1 }} -->
+            </div>
+          </div>
+        </v-sheet>
+        </v-card>
       </template>
 
+      <!-- Deployment Map Select -->
       <template v-slot:[`item.2`]>
-        <!-- <v-card title="Step Two" flat>...</v-card> -->
-        
-        <v-sheet color="primary" height="100%" tile>
+        <v-sheet id="deployment-map-select" color="primary" height="100%" tile>
           <br />
           <div class="justify-center align-center">
             <!-- <div class="text-h2"> -->
@@ -32,13 +43,14 @@
             <!-- </div> -->
           </div>
 
-        <br />
+        <br /> <br />
         </v-sheet>
       </template>
 
+      <!-- Primary Mission Select -->
       <template v-slot:[`item.3`]>
-        <!-- <v-card title="Step Three" flat>...</v-card> -->
-        <v-sheet color="primary" tile>
+        <v-card title="Primary Mission Select" flat>
+        <v-sheet id="primary-mission-select" color="primary" tile>
           <div class="d-flex fill-height justify-center align-center">
             <div class="text-h2">
               <MissionView 
@@ -48,7 +60,130 @@
               <!-- Slide {{ i + 1 }} -->
             </div>
           </div>
+          <br /> <br />
         </v-sheet>
+        </v-card>
+      </template>
+
+      <!-- Mission Rule Select -->
+      <template v-slot:[`item.4`]>
+        <v-sheet id="mission-rule-select" color="primary" tile>
+          <div class="d-flex fill-height justify-center align-center">
+            <div class="text-h2">
+              <MissionView 
+                :missionList="colors" 
+                randomButtonSpinnerLink="https://wheelofnames.com/bjg-sew"
+              />
+            </div>
+          </div>
+          <br /><br />
+        </v-sheet>
+      </template>
+
+      <!-- Measure Table -->
+      <template v-slot:[`item.5`]>
+        <v-card title="Measure Table" flat>
+          <v-sheet color="primary" height="100%" tile>
+            <div class="d-flex fill-height justify-center align-center">
+              <div class="text-h2">
+                Measure out 44 inches by 60 inches.  This will be your table.
+
+                The 4 quadrants of the board are each 11 inches by 15 inches.
+              </div>
+            </div>
+          </v-sheet>
+        </v-card>
+      </template>
+
+      <!-- Place Objective Markers -->
+      <template v-slot:[`item.6`]>
+        <v-card title="Place Objective Markers" flat>
+          <v-sheet color="primary" tile>
+            <div class="d-flex fill-height justify-center align-center">
+              <div class="text-h2">
+                Starting with Player 1, both players alternate placing objective markers.
+
+                Please refer to the deployment card when deciding where to place unless your mission dictates otherwise.
+              </div>
+            </div>
+          </v-sheet>
+        </v-card>
+      </template>
+
+      <!-- Place Setup Terrain -->
+      <template v-slot:[`item.7`]>
+        <v-card title="Setup Terrain" flat>
+          <v-sheet color="primary" tile>
+            <div class="d-flex fill-height justify-center align-center">
+              <div class="text-h2">
+                Starting with Player 1, both players alternate placing terrain.
+
+                Unless otherwise stated, no impassable terrain can be setup within 1 inch of an objective marker
+              </div>
+            </div>
+          </v-sheet>
+        </v-card>
+      </template>
+
+      <!-- Declare Battle Formations -->
+      <template v-slot:[`item.8`]>
+        <v-card title="Battle Formations" flat>
+          <v-sheet color="primary" tile>
+            <div class="d-flex fill-height justify-center align-center">
+              <div class="text-h2">
+                Secretly note: Units are attached, in transports, or in Reserves
+                <br />
+                <br />
+                No more than half the units or points of an army can be in Reserves
+                <br />
+                <br />
+                Reserves cannot enter in first round.
+                <br />
+                <br />
+                Any reserves not in at the end of Round 3 are automatically destroyed
+              </div>
+            </div>
+          </v-sheet>
+        </v-card>
+      </template>
+
+      <!-- Deploy Armies -->
+      <template v-slot:[`item.9`]>
+        <v-card title="Deploy Armies" flat>
+          <v-sheet color="primary" tile>
+            <div class="d-flex fill-height justify-center align-center">
+              <div class="text-h2">
+                Starting with the Defender, alternate placing units within your deployment zone
+              </div>
+            </div>
+          </v-sheet>
+        </v-card>
+      </template>
+
+      <!-- Determine First Turn -->
+      <template v-slot:[`item.10`]>
+        <v-card title="Determine First Turn" flat>
+          <v-sheet color="primary" tile>
+            <div class="d-flex fill-height justify-center align-center">
+              <div class="text-h2">
+                Roll off to see who goes first.  Highest roll goes first.
+              </div>
+            </div>
+          </v-sheet>
+        </v-card>
+      </template>
+
+      <!-- Resolve Pre Battle Rules -->
+      <template v-slot:[`item.11`]>
+        <v-card title="Pre Battle Rules" flat>
+          <v-sheet color="primary" tile>
+            <div class="d-flex fill-height justify-center align-center">
+              <div class="text-h2">
+                Resolve any pre-battle rules starting with the player going first
+              </div>
+            </div>
+          </v-sheet>
+        </v-card>
       </template>
     </v-stepper>
   </div>
