@@ -17,6 +17,8 @@
         'Step 10', // Determine First Turn
         'Step 11', // Resolve Pre Battle Rules
       ]"
+      next-text="Next Setup"
+      prev-text="Previous Setup"
     >
       <!-- Player Select -->
       <template v-slot:[`item.1`]>
@@ -34,6 +36,7 @@
 
       <!-- Deployment Map Select -->
       <template v-slot:[`item.2`]>
+        <v-card title="Deployment Map Select" flat>
         <v-sheet id="deployment-map-select" color="primary" height="100%" tile>
           <br />
           <div class="justify-center align-center">
@@ -45,39 +48,42 @@
 
         <br /> <br />
         </v-sheet>
+        </v-card>
       </template>
 
       <!-- Primary Mission Select -->
       <template v-slot:[`item.3`]>
         <v-card title="Primary Mission Select" flat>
-        <v-sheet id="primary-mission-select" color="primary" tile>
-          <div class="d-flex fill-height justify-center align-center">
-            <div class="text-h2">
-              <MissionView 
-                :missionList="colors" 
-                randomButtonSpinnerLink="https://wheelofnames.com/hc7-j9a"
-              />
-              <!-- Slide {{ i + 1 }} -->
+          <v-sheet id="primary-mission-select" color="primary" tile>
+            <div class="d-flex fill-height justify-center align-center">
+              <div class="text-h2">
+                <MissionView 
+                  :missionList="colors" 
+                  randomButtonSpinnerLink="https://wheelofnames.com/hc7-j9a"
+                />
+                <!-- Slide {{ i + 1 }} -->
+              </div>
             </div>
-          </div>
-          <br /> <br />
-        </v-sheet>
+            <br /> <br />
+          </v-sheet>
         </v-card>
       </template>
 
       <!-- Mission Rule Select -->
       <template v-slot:[`item.4`]>
-        <v-sheet id="mission-rule-select" color="primary" tile>
-          <div class="d-flex fill-height justify-center align-center">
-            <div class="text-h2">
-              <MissionView 
-                :missionList="colors" 
-                randomButtonSpinnerLink="https://wheelofnames.com/bjg-sew"
-              />
+        <v-card title="Mission Rule Select" flat>
+          <v-sheet id="mission-rule-select" color="primary" tile>
+            <div class="d-flex fill-height justify-center align-center">
+              <div class="text-h2">
+                <MissionView 
+                  :missionList="colors" 
+                  randomButtonSpinnerLink="https://wheelofnames.com/bjg-sew"
+                />
+              </div>
             </div>
-          </div>
-          <br /><br />
-        </v-sheet>
+            <br /><br />
+          </v-sheet>
+        </v-card>
       </template>
 
       <!-- Measure Table -->

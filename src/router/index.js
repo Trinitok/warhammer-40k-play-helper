@@ -7,6 +7,7 @@ import MissionView from '@/views/MissionView.vue'
 import LeviathanCarousel from '@/views/LeviathanCarouselView.vue'
 import LeviathanStepper from '@/views/LeviathanStepperView.vue'
 import FactionSelectorView from '@/views/FactionSelectorView.vue'
+import LeviathanPhaseView from '@/views/leviathan/LeviathanPhaseView.vue'
 
 const routes = [
   {
@@ -47,6 +48,11 @@ const routes = [
     path: '/leviathan-setup-2',
     name: 'leviathan-stepper',
     component: LeviathanStepper
+  },
+  {
+    path: '/leviathan-setup-3',
+    name: 'leviathan-stepper',
+    component: LeviathanPhaseView
   },
   {
     path: '/faction-select',
