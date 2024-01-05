@@ -4,8 +4,6 @@ import AboutView from '../views/AboutView.vue'
 import GameSelectView from '@/views/GameSelectView.vue'
 import LeviathanDeploymentView from '@/views/leviathan/LeviathanDeploymentView.vue'
 import PrimaryMissionView from '@/views/PrimaryMissionView.vue'
-import LeviathanCarousel from '@/views/LeviathanCarouselView.vue'
-import LeviathanStepper from '@/views/LeviathanStepperView.vue'
 import FactionSelectorView from '@/views/FactionSelectorView.vue'
 import LeviathanPhaseView from '@/views/leviathan/LeviathanPhaseView.vue'
 
@@ -41,16 +39,6 @@ const routes = [
   },
   {
     path: '/leviathan-setup',
-    name: 'leviathan-carousel',
-    component: LeviathanCarousel
-  },
-  {
-    path: '/leviathan-setup-2',
-    name: 'leviathan-stepper',
-    component: LeviathanStepper
-  },
-  {
-    path: '/leviathan-setup-3',
     name: 'leviathan-stepper',
     component: LeviathanPhaseView
   },
