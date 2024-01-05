@@ -3,7 +3,7 @@ import MainView from '../views/MainView.vue'
 import AboutView from '../views/AboutView.vue'
 import GameSelectView from '@/views/GameSelectView.vue'
 import LeviathanDeploymentView from '@/views/leviathan/LeviathanDeploymentView.vue'
-import MissionView from '@/views/MissionView.vue'
+import PrimaryMissionView from '@/views/PrimaryMissionView.vue'
 import LeviathanCarousel from '@/views/LeviathanCarouselView.vue'
 import LeviathanStepper from '@/views/LeviathanStepperView.vue'
 import FactionSelectorView from '@/views/FactionSelectorView.vue'
@@ -37,7 +37,7 @@ const routes = [
   {
     path: '/leviathan-primary-mission-select',
     name: 'leviathan-primary-mission-select',
-    component: MissionView
+    component: PrimaryMissionView
   },
   {
     path: '/leviathan-setup',

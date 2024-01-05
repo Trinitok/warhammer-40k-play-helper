@@ -37,15 +37,12 @@
   
 </template>
 <script>
-// @ is an alias to /src
 import DeploymentPage from '@/components/Deployment2.vue'
-// import LeviathanTableSetup from '@/components/leviathan/LeviathanTableSetup.vue';
 
 export default {
   name: 'LeviathanDeploymentView2',
   components: {
     DeploymentPage,
-    // LeviathanTableSetup,
   },
   data: () => ({
       model: null,

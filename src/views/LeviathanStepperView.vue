@@ -37,17 +37,14 @@
       <!-- Deployment Map Select -->
       <template v-slot:[`item.2`]>
         <v-card title="Deployment Map Select" flat>
-        <v-sheet id="deployment-map-select" color="primary" height="100%" tile>
-          <br />
-          <div class="justify-center align-center">
-            <!-- <div class="text-h2"> -->
+          <v-sheet id="deployment-map-select" color="primary" height="100%" tile>
+            <br />
+            <div class="justify-center align-center">
               <LeviathanDeploymentView2 />
-              <!-- Slide {{ i + 1 }} -->
-            <!-- </div> -->
-          </div>
+            </div>
 
-        <br /> <br />
-        </v-sheet>
+            <br /> <br />
+          </v-sheet>
         </v-card>
       </template>
 
@@ -57,11 +54,10 @@
           <v-sheet id="primary-mission-select" color="primary" tile>
             <div class="d-flex fill-height justify-center align-center">
               <div class="text-h2">
-                <MissionView 
+                <PrimaryMissionView 
                   :missionList="colors" 
                   randomButtonSpinnerLink="https://wheelofnames.com/hc7-j9a"
                 />
-                <!-- Slide {{ i + 1 }} -->
               </div>
             </div>
             <br /> <br />
@@ -75,7 +71,7 @@
           <v-sheet id="mission-rule-select" color="primary" tile>
             <div class="d-flex fill-height justify-center align-center">
               <div class="text-h2">
-                <MissionView 
+                <LeviathanMissionRuleViewVue 
                   :missionList="colors" 
                   randomButtonSpinnerLink="https://wheelofnames.com/bjg-sew"
                 />
@@ -196,12 +192,14 @@
 </template>
 <script>
 import LeviathanDeploymentView2 from "@/views/leviathan/LeviathanDeploymentView2.vue";
-import MissionView from "@/views/MissionView.vue";
+import PrimaryMissionView from "@/views/PrimaryMissionView.vue";
+import LeviathanMissionRuleViewVue from './leviathan/LeviathanMissionRuleView.vue';
 
 export default {
   components: {
     LeviathanDeploymentView2,
-    MissionView,
+    PrimaryMissionView,
+    LeviathanMissionRuleViewVue,
   },
   data() {
     return {

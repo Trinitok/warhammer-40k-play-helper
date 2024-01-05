@@ -177,7 +177,7 @@
 </template>
 <script>
 import LeviathanDeploymentView from "@/views/leviathan/LeviathanDeploymentView.vue";
-import MissionView from "@/views/MissionView.vue";
+import MissionView from "@/views/PrimaryMissionView.vue";
 
 export default {
   components: {
