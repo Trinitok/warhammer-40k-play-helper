@@ -4,7 +4,7 @@
     </h1>
     <br />
     <v-btn :href="randomButtonSpinnerLink" target="_blank">
-        Random Deployment
+        Random
     </v-btn>
     <br />
     <br />
@@ -13,7 +13,6 @@
         elevation="8"
         max-width="800"
     >
-        <!-- <v-virtual-scroll> -->
         <v-slide-group
             v-model="model"
             class="pa-4"
@@ -23,7 +22,7 @@
             show-arrows
         >
             <v-slide-group-item
-                v-for="(n, index) in this.primaryMissionNames"
+                v-for="(n, index) in this.leviathanMissionRules"
                 :key="index"
                 v-slot="{ isSelected, toggle, selectedClass }"
             >
@@ -36,7 +35,7 @@
                 >
                     <div class="d-flex fill-height align-center justify-center">
                         <v-scale-transition>
-                            {{ primaryMissionNames[index] }}
+                            {{ leviathanMissionRules[index] }}
                             <v-icon
                                 v-if="isSelected"
                                 color="white"
@@ -50,7 +49,6 @@
                 </v-card>
             </v-slide-group-item>
         </v-slide-group>
-        <!-- </v-virtual-scroll> -->
 
         <v-expand-transition>
             <v-sheet
@@ -58,9 +56,9 @@
                 height="200"
             >
                 <div class="d-flex fill-height align-center justify-center">
-                    <MissionType
-                        :missionName="primaryMissionNames[model]"
-                        :missionPhaseList="leviathanMissionPhases"
+                    <LeviathanMissionRuleComponentVue
+                        :missionName="leviathanMissionRules[model]"
+                        :missionPhaseText="leviathanMissionRuleDescriptions[model]"
                     />
                 </div>
             </v-sheet>
@@ -68,33 +66,48 @@
     </v-sheet>
 </template>
 <script>
-import MissionType from '@/components/MissionType.vue'
+import LeviathanMissionRuleComponentVue from '@/components/leviathan/LeviathanMissionRuleComponent.vue'
 
 export default {
-    name: 'MissionView',
+    name: 'LeviathanMissionRuleView',
     props: {
         title: String,
         missionList: Array,
         randomButtonSpinnerLink: String,
     },
     components: {
-        MissionType
+        LeviathanMissionRuleComponentVue
     },
     data () {
       return {
-        primaryMissionNames: [
-            'Take and Hold',
-            'Scorched Earth',
-            'Purge the Foe',
-            'Sites of Power',
-            'The Ritual',
-            'Priority Targets',
-            'Supply Drop',
-            'Deploy Servo Skulls',
-            'Vital Ground',
+        leviathanMissionRules: [
+            'Chosen Battlefield',
+            'Scrambler Fields',
+            'Chilling Rain',
+            'Delayed Reserves',
+            'Sweep and Clear',
+            'Maelstrom of Battle',
+            'Hidden Supplies',
+            'Supply Lines',
+            'Minefields',
+            'Secret Intel',
+            'Targets of Opportunity',
+            'Vox Static',
         ],
-        leviathanMissionPhases: [
-          'Meow Special', 'Battle Round 2', 'Battle Round 3', 'Battle Round 4', 'Battle Round 5', 'End of Battle',
+
+        leviathanMissionRuleDescriptions: [
+            'Chosen Battlefield Rule Text',
+            'Scrambler Fields Rule Text', 
+            'In this mission, no additional mission rules apply.', 
+            'Delayed Reserves Rule Text', 
+            'Sweep and Clear Rule Text', 
+            'Maelstrom of Battle Rule Text',
+            'Hidden Supplies Rule Text',
+            'Supply Lines Rule Text',
+            'Minefields Rule Text',
+            'Secret Intel Rule Text',
+            'Targets of Opportunity Rule Text',
+            'Vox Static Rule Text',
         ],
         model: null,
       }

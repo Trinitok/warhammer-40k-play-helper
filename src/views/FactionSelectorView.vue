@@ -1,6 +1,13 @@
 <template>
-  <div class="about">
-    <FactionSelectorComponent />
+  <div class="faction-select">
+    <div >
+      <h1>Player 1 Select Faction</h1>
+      <FactionSelectorComponent />
+    </div>
+    <div >
+      <h1>Player 2 Select Faction</h1>
+      <FactionSelectorComponent />
+    </div>
   </div>
 </template>
 
