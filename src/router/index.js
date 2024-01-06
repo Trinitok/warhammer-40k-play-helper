@@ -2,10 +2,9 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import MainView from '../views/MainView.vue'
 import AboutView from '../views/AboutView.vue'
 import GameSelectView from '@/views/GameSelectView.vue'
-import LeviathanDeploymentView from '@/views/leviathan/LeviathanDeploymentView.vue'
-import PrimaryMissionView from '@/views/PrimaryMissionView.vue'
+import GameNavigationView from '@/views/GameNavigationView.vue'
 import FactionSelectorView from '@/views/FactionSelectorView.vue'
-import LeviathanPhaseView from '@/views/leviathan/LeviathanPhaseView.vue'
+// import LeviathanPhaseView from '@/views/leviathan/LeviathanPhaseView.vue'
 
 const routes = [
   {
@@ -28,19 +27,14 @@ const routes = [
     component: GameSelectView
   },
   {
-    path: '/leviathan-deployment',
-    name: 'leviathan-deployment',
-    component: LeviathanDeploymentView
-  },
-  {
-    path: '/leviathan-primary-mission-select',
-    name: 'leviathan-primary-mission-select',
-    component: PrimaryMissionView
+    path: '/playground',
+    name: 'playground',
+    component: GameNavigationView
   },
   {
     path: '/leviathan-setup',
     name: 'leviathan-stepper',
-    component: LeviathanPhaseView
+    component: GameNavigationView
   },
   {
     path: '/faction-select',

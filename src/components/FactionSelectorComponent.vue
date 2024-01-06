@@ -19,13 +19,24 @@
             {{ item.name }}
             <v-item v-slot="{ isSelected, toggle }">
               <div>
-              <img
-                src="../assets/tau.jpeg"
+              <!-- <img
+                :src="item.src"
                 cover
                 height="150"
                 class="text-right pa-2"
                 @click="toggle"
-              >
+              > -->
+              <!-- <v-img src="../assets/tau.jpg">
+                <template #sources>
+                  <source srcset="@/assets/tau.jpg">
+                </template>
+              </v-img> -->
+              <v-img 
+                :src="item.src"
+                height="150"
+                class="text-right pa-2"
+                @click="toggle"
+              />
                 <v-btn text="Select" :icon="isSelected ? '$vuetify' : ''" @click="toggle"></v-btn>
               </div>
             </v-item>
@@ -41,23 +52,27 @@ export default {
   data: () => ({
       items: [
         {
-          src: '../assets/Adeptus_Astartes.jpg',
+          src: 'https://static.wikia.nocookie.net/warhammer40k/images/1/13/Ultramarines_Artificer_Armour2.jpg',
           name: 'space marine',
         },
         {
-          src: '../assets/necron.jpg',
+          src: 'https://static.wikia.nocookie.net/warhammer40k/images/3/33/Necron_Warriors_vs_UM.png',
           name: 'necrons',
         },
         {
-          src: '../assets/chaos-space-marines.jpg',
+          src: 'https://static.wikia.nocookie.net/warhammer40k/images/6/68/AraghastthePillager.jpg',
           name: 'chaos marines',
         },
         {
-          src: '../assets/tau.jpg',
+          src: 'https://static.wikia.nocookie.net/warhammer40k/images/5/55/Tau_empire.jpg',
           name: 'tau',
         },
         {
-          src: '../assets/chaos-demons.jpg',
+          src: 'https://static.wikia.nocookie.net/warhammer40k/images/5/57/Tyrant.JPG',
+          name: 'tyranids',
+        },
+        {
+          src: 'https://static.wikia.nocookie.net/warhammer40k/images/c/c5/KhorneSlaaneshDaemonHorde.jpg',
           name: 'chaos demons'
         }
       ],
