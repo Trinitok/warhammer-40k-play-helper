@@ -15,13 +15,6 @@
     >
         <template v-slot:[`item.1`]>
             <v-card title="Setup" flat>
-                <!-- <v-sheet color="primary" height="100%" tile>
-                    <div class="d-flex fill-height justify-center align-center">
-                        <div class="text-h2">
-                        Establish who is Player 1 and Player 2
-                        </div>
-                    </div>
-                </v-sheet> -->
                 <LeviathanSetupView />
             </v-card>
         </template>
