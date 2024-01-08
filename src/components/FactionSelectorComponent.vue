@@ -7,7 +7,7 @@
     <v-container class="pa-1">
       <v-item-group
         v-model="selection"
-        multiple
+        mandatory
       >
         <v-row>
           <v-col
@@ -16,30 +16,7 @@
             cols="12"
             md="6"
           >
-            {{ item.name }}
-            <v-item v-slot="{ isSelected, toggle }">
-              <div>
-              <!-- <img
-                :src="item.src"
-                cover
-                height="150"
-                class="text-right pa-2"
-                @click="toggle"
-              > -->
-              <!-- <v-img src="../assets/tau.jpg">
-                <template #sources>
-                  <source srcset="@/assets/tau.jpg">
-                </template>
-              </v-img> -->
-              <v-img 
-                :src="item.src"
-                height="150"
-                class="text-right pa-2"
-                @click="toggle"
-              />
-                <v-btn text="Select" :icon="isSelected ? '$vuetify' : ''" @click="toggle"></v-btn>
-              </div>
-            </v-item>
+            <FactionComponentVue :faction_metadata="item" @factionSelected="changeSelectedFaction" />
           </v-col>
         </v-row>
       </v-item-group>
@@ -47,8 +24,13 @@
   </v-card>
 </template>
 <script>
+import FactionComponentVue from './FactionComponent.vue';
+
 export default {
   name: 'FactionSelectorComponent',
+  components: {
+    FactionComponentVue,
+  },
   data: () => ({
       items: [
         {
@@ -76,15 +58,18 @@ export default {
           name: 'chaos demons'
         }
       ],
-      selection: [],
+      selection: {},
     }),
   props: {
     factions: Array,
   },
   methods: {
-      getImageUrl() {
-          return this.mapImage;
-      },
+    changeSelectedFaction(selectedFaction) {
+      console.log('in faction selector component. here is the selected faction');
+      console.log(selectedFaction);
+      this.selection = selectedFaction
+      this.$emit('factionSelected', this.selection);
+    }
   }
 }
 </script>
