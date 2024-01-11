@@ -10,10 +10,11 @@
   },
   "dependencies": {
     "core-js": "^3.35.0",
-    "vue": "^3.4.4",
+    "vue": "^3.4.5",
     "vue-router": "^4.2.5",
     "vuetify": "^3.4.9",
-    "vuex": "^4.0.0"
+    "vuex": "^4.0.0",
+    "webpack-plugin-vuetify": "^3.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.23.7",

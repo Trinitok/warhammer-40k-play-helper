@@ -19,7 +19,7 @@
         </v-navigation-drawer>
         <v-main class="d-flex align-center justify-center">
             <div id="army-creation" v-show="isArmyCreationVisible">
-                <FactionSelectorComponentVue />
+                <FactionSelectorViewVue />
             </div>
             <div id="game" v-show="isGameVisible">
                 <LeviathanPhaseViewVue />
@@ -33,12 +33,12 @@
 </template>
 <script>
 import LeviathanPhaseViewVue from '@/views/leviathan/LeviathanPhaseView.vue'
-import FactionSelectorComponentVue from './FactionSelectorComponent.vue'
+import FactionSelectorViewVue from '@/views/FactionSelectorView.vue'
 
 export default {
     name: "GameNavigation",
     components: {
-        FactionSelectorComponentVue,
+        FactionSelectorViewVue,
         LeviathanPhaseViewVue,
     },
     data() {
