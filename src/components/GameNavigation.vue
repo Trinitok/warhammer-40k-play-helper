@@ -4,20 +4,34 @@
         <v-layout ref="app" class="rounded rounded-md">
         <v-navigation-drawer
             name="nav-drawer"
-            expand-on-hover
-            rail
-            permanent
         >
             <v-list density="compact" nav>
-                <v-list-item title="Army Creation" value="army" @click="showFactionCreation">
+                <v-list-item 
+                    prepend-icon="$vuetify"
+                    title="Army Creation" 
+                    value="army" 
+                    @click="showFactionCreation"
+                >
 
                 </v-list-item>
-                <v-list-item title="Game" value="game" @click="showGame">
+                <v-list-item 
+                    prepend-icon="$vuetify"
+                    title="Game" 
+                    value="game" 
+                    @click="showGame"
+                >
 
                 </v-list-item>
             </v-list>
         </v-navigation-drawer>
         <v-main class="d-flex align-center justify-center">
+            <v-alert 
+                v-if="!isGameVisible && !isArmyCreationVisible"
+                density="compact"
+                type="warning"
+                text="Please select a choice on the left"
+            >
+            </v-alert>
             <div id="army-creation" v-show="isArmyCreationVisible">
                 <FactionSelectorViewVue />
             </div>
