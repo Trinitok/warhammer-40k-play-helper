@@ -1,14 +1,14 @@
 <template>
     {{ faction_metadata.name }}
     <v-item v-slot="{ isSelected, toggle }">
-        <div @click="selectedFaction">
+        <div >
             <v-img 
                 :src="faction_metadata.src"
                 height="150"
                 class="text-right pa-2"
-                @click="toggle"
+                @click="[selectedFaction(), toggle($event)]"
             />
-            <v-btn text="Select" :icon="isSelected ? '$vuetify' : ''" @click="toggle"></v-btn>
+            <v-btn text="Select" :icon="isSelected ? '$vuetify' : ''" @click="[selectedFaction(), toggle($event)]" />
         </div>
     </v-item>
 </template>
@@ -20,11 +20,11 @@ export default {
     },
     setup() {
     },
+    data: () => ({
+    }),
     methods: {
-        selectedFaction(value) {
-            console.log('item in faction selector was clicked');
-            console.log(value);
-            this.$emit('factionSelected', this.faction_metadata)
+        selectedFaction() {
+            this.$emit('factionSelected', this.faction_metadata);
         },
     },
 }

@@ -9,17 +9,16 @@
       <v-expansion-panel-text>
       <v-stepper
         :items="['Faction', 'Detachment', 'Army']"
-        :complete="factionSelectionCompleted"
       >
       <!-- :items="['Faction', 'Detachment', 'Army']" -->
         <template v-slot:[`item.1`] >
           <FactionSelectorComponent @factionSelected="updateSelectedFaction" />
         </template>
         <template v-slot:[`item.2`]>
-          <DetachmentSelectorComponent />
+          <DetachmentSelectorComponentVue :faction="chosenFaction" />
         </template>
         <template v-slot:[`item.3`]>
-          <ArmyMakerComponent />
+          <ArmyCreationComponentVue />
         </template>
       </v-stepper>
       </v-expansion-panel-text>
@@ -40,14 +39,28 @@
 
 <script>
 import FactionSelectorComponent from '@/components/FactionSelectorComponent.vue'
+import DetachmentSelectorComponentVue from '@/components/DetachmentSelectorComponent.vue'
+import ArmyCreationComponentVue from '@/components/leviathan/ArmyCreationComponent.vue'
 
 export default {
   name: 'FactionSelectorView',
   components: {
-    FactionSelectorComponent
+    FactionSelectorComponent,
+    DetachmentSelectorComponentVue,
+    ArmyCreationComponentVue,
   },
   data: () => ({
-    factionSelectionCompleted: false,
+    chosenFaction: {},
+    chosenDetachment: '',
+    chosenArmy: [],
   }),
+  methods: {
+    updateSelectedFaction(selectedFaction) {
+      console.log('in faction selector view');
+      console.log('here is your updated faction');
+      console.log(selectedFaction);
+      this.chosenFaction = selectedFaction;
+    }
+  }
 }
 </script>

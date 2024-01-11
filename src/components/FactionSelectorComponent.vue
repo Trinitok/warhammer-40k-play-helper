@@ -55,7 +55,8 @@ export default {
         },
         {
           src: 'https://static.wikia.nocookie.net/warhammer40k/images/c/c5/KhorneSlaaneshDaemonHorde.jpg',
-          name: 'chaos demons'
+          name: 'chaos demons',
+          meta_name: 'chaos_daemons'
         }
       ],
       selection: {},
