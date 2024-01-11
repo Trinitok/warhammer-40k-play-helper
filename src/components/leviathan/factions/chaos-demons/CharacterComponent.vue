@@ -1,5 +1,11 @@
 <template>
-    
+    <v-expansion-panels>
+        <v-expansion-panel>
+            <v-expansion-panel-title>
+                Skarbrand <v-spacer /> <v-btn text="+" @click="selectCharacter('skarbrand')" />
+            </v-expansion-panel-title>
+        </v-expansion-panel>
+    </v-expansion-panels>
 </template>
 <script>
 export default {
@@ -101,5 +107,11 @@ export default {
             }
         ]
     }),
+    methods: {
+        selectCharacter(identification) {
+            console.log('selected character = ' + identification);
+            this.$emit('characterSelect', this.characters[0]);
+        }
+    },
 }
 </script>

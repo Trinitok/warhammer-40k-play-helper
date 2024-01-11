@@ -5,16 +5,16 @@
         </template>
 
         <template v-slot:default="{ isActive }">
-            <v-card title="Character Select">
+            <v-card title="Dialog">
                 <v-card-text>
-                    <CharacterComponentVue @characterSelect="characterSelect" />
+                    Dedicated Transports here
                 </v-card-text>
 
                 <v-card-actions>
                     <v-spacer></v-spacer>
 
                     <v-btn
-                    text="Close Character Select"
+                    text="Close Dialog"
                     @click="isActive.value = false"
                     ></v-btn>
                 </v-card-actions>
@@ -23,17 +23,7 @@
     </v-dialog>
 </template>
 <script>
-import CharacterComponentVue from './leviathan/factions/chaos-demons/CharacterComponent.vue'
-
 export default {
-    name: "CharacterSelectorComponent",
-    components: {
-        CharacterComponentVue,
-    },
-    methods: {
-        characterSelect(selectedCharacter) {
-            this.$emit('selectedCharacter', selectedCharacter);
-        }
-    },
+    name: "DedicatedTransportSelectorComponent",
 }
 </script>
