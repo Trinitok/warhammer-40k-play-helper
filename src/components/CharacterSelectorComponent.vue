@@ -7,7 +7,7 @@
         <template v-slot:default="{ isActive }">
             <v-card title="Character Select">
                 <v-card-text>
-                    <CharacterComponentVue @characterSelect="characterSelect" />
+                    <CharacterComponent :faction="chosenFaction" @characterSelect="characterSelect" />
                 </v-card-text>
 
                 <v-card-actions>
@@ -23,17 +23,24 @@
     </v-dialog>
 </template>
 <script>
-import CharacterComponentVue from './leviathan/factions/chaos-demons/CharacterComponent.vue'
+import CharacterComponent from '@/components/leviathan/factions/chaos-demons/CharacterComponent.vue'
 
 export default {
     name: "CharacterSelectorComponent",
+    setup(props) {
+        console.log('in character selector component. here is the props');
+        console.log(props.chosenFaction);
+    },
     components: {
-        CharacterComponentVue,
+        CharacterComponent,
     },
     methods: {
         characterSelect(selectedCharacter) {
             this.$emit('selectedCharacter', selectedCharacter);
         }
     },
+    props: {
+        chosenFaction: String,
+    }
 }
 </script>

@@ -1,22 +1,14 @@
 <template>
     <v-expansion-panels>
         <v-expansion-panel>
-            <v-expansion-panel-title>
+            <v-expansion-panel-title id="characters-list-select">
                 Characters <v-spacer />
                 <!-- begin -->
 
-                <CharacterSelectorComponentVue @selectedCharacter="addCharacter" />
+                <CharacterSelectorComponentVue :chosenFaction="faction" @selectedCharacter="addCharacter" />
 
                 <!-- end -->
             </v-expansion-panel-title>
-            <v-expansion-panel-text>
-                <v-list
-                    :items="items"
-                    item-title="name"
-                    item-value="value"
-                >
-                </v-list>
-            </v-expansion-panel-text>
         </v-expansion-panel>
         <v-expansion-panel>
             <v-expansion-panel-title>
@@ -65,10 +57,11 @@ export default {
         OtherSelectorComponentVue,
     },
     props: {
-
+        faction: Object,
     },
-    setup() {
-        
+    setup(props) {
+        console.log('in army create component. here is the chosen faction');
+        console.log(props.faction);
     },
     data: () => ({
         items: [

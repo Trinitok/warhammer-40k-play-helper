@@ -18,7 +18,7 @@
           <DetachmentSelectorComponentVue :faction="chosenFaction" />
         </template>
         <template v-slot:[`item.3`]>
-          <ArmyCreationComponentVue />
+          <ArmyCreationComponentVue :faction="chosenFaction" />
         </template>
       </v-stepper>
       </v-expansion-panel-text>
