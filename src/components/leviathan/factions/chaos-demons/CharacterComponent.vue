@@ -25,7 +25,6 @@
 </template>
 <script>
 import ChaosSpaceMarinesVue from '@/components/leviathan/factions/chaos-space-marines/ChaosSpaceMarines.vue';
-// import { onMounted, getCurrentInstance } from 'vue';
 
 export default {
     name: "CharacterComponent",

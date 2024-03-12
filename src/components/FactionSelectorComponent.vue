@@ -77,7 +77,10 @@ export default {
       console.log('in faction selector component. here is the selected faction');
       console.log(selectedFaction);
       this.selection = selectedFaction
-      this.selection.characters = this.$refs.csm.tempMethod();
+      this.selection.characters = this.$refs.csm.getCharacters();
+      this.selection.battleline = this.$refs.csm.getBattleLine();
+      this.selection.dedicatedTransports = this.$refs.csm.getDedicatedTransports();
+      this.selection.otherDataSheets = this.$refs.csm.getOtherDataSheets();
       this.$emit('factionSelected', this.selection);
     }
   }

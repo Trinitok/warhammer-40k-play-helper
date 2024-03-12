@@ -77,7 +77,12 @@ export default {
                     text: "Each time a Legiones Daemonica unit from your army is set up on the battlefield using the Deep Strike ability, if it is set up wholly within your army’s Shadow of Chaos, it can be set up anywhere that is more than 6\" horizontally away from all enemy models, instead of more than 9\"."
                 }
             ],
-
+            chaos_space_marines: [
+              {
+                name: "Slaves to Darkness",
+                text: "When mustering your army, each time you select a Heretic Astartes unit to include in your army, if that unit is not an Epic Hero and does not already have one or more of the keywords listed below, you must select one of the keywords listed below for that unit to gain. Each time a unit with one of these keywords makes a dark pact, it gains the associated ability below until the end of the phase"
+              }
+            ]
         },
         radios: "one",
         colors: [
@@ -87,13 +92,6 @@ export default {
           'red lighten-2',
           'orange darken-1',
         ],
-        // slides: [
-        //   'First',
-        //   'Second',
-        //   'Third',
-        //   'Fourth',
-        //   'Fifth',
-        // ],
     }),
     setup() {
     },

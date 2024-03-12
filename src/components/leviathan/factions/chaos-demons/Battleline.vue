@@ -1,11 +1,34 @@
 <template>
-    
+    <v-expansion-panels>
+        <v-expansion-panel
+            v-if="faction.meta_name == 'chaos_daemons'"
+        >
+            <v-expansion-panel-title>
+                Skarbrand <v-spacer /> <v-btn text="+" @click="selectCharacter('skarbrand')" />
+            </v-expansion-panel-title>
+        </v-expansion-panel>
+    </v-expansion-panels>
+    <v-expansion-panels
+        v-if="faction.meta_name == 'chaos_space_marines'"
+    >
+        <ChaosSpaceMarinesVue ref="csm" />
+        <v-expansion-panel
+            v-for="battlelineUnit in faction.battleline"
+            :key="battlelineUnit"
+        >
+            <v-expansion-panel-title
+            >
+                {{ battlelineUnit.name }} <v-spacer /> <v-btn text="+" @click="selectBattlelineUnit(battlelineUnit.metaName)" />
+            </v-expansion-panel-title>
+        </v-expansion-panel>
+    </v-expansion-panels>
 </template>
 <script>
 export default {
     name: "BattlelineComponent",
-    setup() {
-        
+    setup(props) {
+        console.log('in battleline component. here is the faction:');
+        console.log(props.faction);
     },
     data: () => ({
         battleline: [
@@ -60,5 +83,14 @@ export default {
             }
         ]
     }),
+    methods: {
+        selectBattlelineUnit(identification) {
+            console.log('selected battleline unit = ' + identification);
+            this.$emit('battlelineSelect', identification);
+        },
+    },
+    props: {
+        faction: String,
+    }
 }
 </script>

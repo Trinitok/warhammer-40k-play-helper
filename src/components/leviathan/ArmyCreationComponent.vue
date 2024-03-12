@@ -15,7 +15,7 @@
                 Battleline <v-spacer />
                 <!-- begin -->
 
-                <BattlelineSelectorComponentVue />
+                <BattlelineSelectorComponentVue :chosenFaction="faction" @selectedBattleline="addBattleline" />
 
                 <!-- end -->
             </v-expansion-panel-title>
@@ -25,7 +25,7 @@
                 Dedicated Transports <v-spacer />
                 <!-- begin -->
 
-                <DedicatedTransportSelectorComponentVue />
+                <DedicatedTransportSelectorComponentVue :chosenFaction="faction" @selectedDedicatedTransport="addDedicatedTransports" />
 
                 <!-- end -->
             </v-expansion-panel-title>
@@ -35,7 +35,7 @@
                 Other <v-spacer />
                 <!-- begin -->
 
-                <OtherSelectorComponentVue />
+                <OtherSelectorComponentVue :chosenFaction="faction" @selectedOtherDataSheet="addOtherDataSheet" />
 
                 <!-- end -->
             </v-expansion-panel-title>
@@ -65,7 +65,8 @@ export default {
     },
     data: () => ({
         items: [
-      ],
+            
+        ],
     }),
     methods: {
         addCharacter(characterToAdd) {
@@ -74,14 +75,23 @@ export default {
             this.items.push(characterToAdd);
             console.log(this.items);
         },
-        showBattleline() {
-
+        addBattleline(battlelineUnitToAdd) {
+            console.log('adding' + battlelineUnitToAdd);
+            battlelineUnitToAdd['value'] = this.items.length + 1;
+            this.items.push(battlelineUnitToAdd);
+            console.log(this.items);
         },
-        showDedicatedTransports() {
-
+        addDedicatedTransports(dedicatedTransportUnitToAdd) {
+            console.log('adding' + dedicatedTransportUnitToAdd);
+            dedicatedTransportUnitToAdd['value'] = this.items.length + 1;
+            this.items.push(dedicatedTransportUnitToAdd);
+            console.log(this.items);
         },
-        showOther(){
-
+        addOtherDataSheet(otherUnitToAdd){
+            console.log('adding' + otherUnitToAdd);
+            otherUnitToAdd['value'] = this.items.length + 1;
+            this.items.push(otherUnitToAdd);
+            console.log(this.items);
         },
     },
 }
