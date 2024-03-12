@@ -1,17 +1,39 @@
 <template>
     <v-expansion-panels>
-        <v-expansion-panel>
+        <v-expansion-panel
+            v-if="faction.meta_name == 'chaos_daemons'"
+        >
             <v-expansion-panel-title>
                 Skarbrand <v-spacer /> <v-btn text="+" @click="selectCharacter('skarbrand')" />
             </v-expansion-panel-title>
         </v-expansion-panel>
     </v-expansion-panels>
+    <v-expansion-panels
+        v-if="faction.meta_name == 'chaos_space_marines'"
+    >
+        <ChaosSpaceMarinesVue ref="csm" />
+        <v-expansion-panel
+            v-for="character in faction.characters"
+            :key="character"
+        >
+            <v-expansion-panel-title
+            >
+                {{ character.name }} <v-spacer /> <v-btn text="+" @click="selectCharacter(character.metaName)" />
+            </v-expansion-panel-title>
+        </v-expansion-panel>
+    </v-expansion-panels>
 </template>
 <script>
+import ChaosSpaceMarinesVue from '@/components/leviathan/factions/chaos-space-marines/ChaosSpaceMarines.vue';
+
 export default {
     name: "CharacterComponent",
-    setup() {
-        
+    setup(props) {
+        console.log('in character component. here is the faction:');
+        console.log(props.faction);
+    },
+    components: {
+        ChaosSpaceMarinesVue,
     },
     data: () => ({
         characters: [
@@ -111,7 +133,10 @@ export default {
         selectCharacter(identification) {
             console.log('selected character = ' + identification);
             this.$emit('characterSelect', this.characters[0]);
-        }
+        },
     },
+    props: {
+        faction: String,
+    }
 }
 </script>

@@ -1,5 +1,27 @@
 <template>
-    
+    <v-expansion-panels>
+        <v-expansion-panel
+            v-if="faction.meta_name == 'chaos_daemons'"
+        >
+            <v-expansion-panel-title>
+                Skarbrand <v-spacer /> <v-btn text="+" @click="selectCharacter('skarbrand')" />
+            </v-expansion-panel-title>
+        </v-expansion-panel>
+    </v-expansion-panels>
+    <v-expansion-panels
+        v-if="faction.meta_name == 'chaos_space_marines'"
+    >
+        <ChaosSpaceMarinesVue ref="csm" />
+        <v-expansion-panel
+            v-for="otherUnit in faction.otherDataSheets"
+            :key="otherUnit"
+        >
+            <v-expansion-panel-title
+            >
+                {{ otherUnit.name }} <v-spacer /> <v-btn text="+" @click="selectOtherUnit(otherUnit.metaName)" />
+            </v-expansion-panel-title>
+        </v-expansion-panel>
+    </v-expansion-panels>
 </template>
 <script>
 export default {
@@ -74,5 +96,14 @@ export default {
             }
         ]
     }),
+    methods: {
+        selectOtherUnit(identification) {
+            console.log('selected battleline unit = ' + identification);
+            this.$emit('otherUnitSelect', identification);
+        },
+    },
+    props: {
+        faction: String,
+    }
 }
 </script>
